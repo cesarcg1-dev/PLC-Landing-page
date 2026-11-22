@@ -1,23 +1,58 @@
 import { createFileRoute } from "@tanstack/react-router";
+import {
+  Contact,
+  FAQ,
+  Footer,
+  Header,
+  Hero,
+  Process,
+  Services,
+  SocialProof,
+  TrustBar,
+  WhyUs,
+  useScrollReveal,
+} from "@/components/industrial/sections";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "TecnoMantenimiento Industrial MTY | CNC, PLC y electrónica" },
+      {
+        name: "description",
+        content:
+          "Mantenimiento especializado de centros de maquinado CNC, electricidad, electrónica y PLC. Atención en planta y taller en Monterrey y cobertura en cuatro estados.",
+      },
+      {
+        property: "og:title",
+        content: "TecnoMantenimiento Industrial MTY | CNC, PLC y electrónica",
+      },
+      {
+        property: "og:description",
+        content:
+          "Soluciones especializadas para mantener tu operación funcionando. Solicita un diagnóstico para tu equipo industrial.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  useScrollReveal();
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <TrustBar />
+        <Services />
+        <WhyUs />
+        <Process />
+        <SocialProof />
+        <FAQ />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 }
