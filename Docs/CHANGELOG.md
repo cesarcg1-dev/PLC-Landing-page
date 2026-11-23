@@ -6,7 +6,36 @@ Resúmenes ejecutivos de los cambios del proyecto. Cada entrada lleva un ID cons
 
 | ID | Fecha | Resumen |
 | --- | --- | --- |
+| [C-002](#c-002-documentación-del-proyecto) | 2026-11-23 | Documentación del proyecto |
 | [C-001](#c-001-revisión-inicial-fotos-y-accesibilidad) | 2026-11-23 | Revisión inicial, fotos y accesibilidad |
+
+## C-002. Documentación del proyecto
+
+Fecha: 2026-11-23  
+Estado: implementado.
+
+### Resumen ejecutivo
+
+Se creó la documentación base de PLC Landing web: producto, arquitectura, decisiones, convenciones, operación, pruebas y contenido. El `AGENTS.md` presente en el repo se usa solo como referencia de estilo, porque fue copiado de otro proyecto. `README.md` y `roadmap.md` permanecen borrados a petición.
+
+### Cambios
+
+- `Docs/PRD.md`: objetivos, requisitos, fuera de alcance y pendientes.
+- `Docs/ARCHITECTURE.md`: stack, capas, renderizado, imágenes, estilos y pruebas.
+- `Docs/DECISIONES.md`: decisiones D-01 a D-08 y pendientes PD-01 a PD-04.
+- `Docs/CONVENCIONES_CODIGO.md`: convenciones CV-01 a CV-08, anclas y commits.
+- `Docs/RUNBOOK.md`: comandos, fotos locales y normas de Lovable.
+- `Docs/TESTING.md`: pruebas T-01 a T-04 y verificación manual.
+- `Docs/CONTENT.md`: fuentes de contenido y datos de ejemplo.
+
+### Verificación
+
+- Los siete documentos tienen `## Índice` al inicio.
+- `npm test`: 4 archivos, 7 pruebas, todas pasan.
+
+### Commits relacionados
+
+- Commit actual — crea la documentación base y actualiza este CHANGELOG.
 
 ## C-001. Revisión inicial, fotos y accesibilidad
 
