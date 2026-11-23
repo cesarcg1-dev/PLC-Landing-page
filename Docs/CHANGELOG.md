@@ -6,8 +6,35 @@ Resúmenes ejecutivos de los cambios del proyecto. Cada entrada lleva un ID cons
 
 | ID | Fecha | Resumen |
 | --- | --- | --- |
+| [C-003](#c-003-datos-reales-año-del-footer-y-formulario-con-formsubmit) | 2026-11-23 | Datos reales y formulario con FormSubmit |
 | [C-002](#c-002-documentación-del-proyecto) | 2026-11-23 | Documentación del proyecto |
 | [C-001](#c-001-revisión-inicial-fotos-y-accesibilidad) | 2026-11-23 | Revisión inicial, fotos y accesibilidad |
+
+## C-003. Datos reales, año del footer y formulario con FormSubmit
+
+Fecha: 2026-11-23  
+Estado: implementado. Quedan PD-01, PD-03 y PD-05.
+
+### Resumen ejecutivo
+
+Se reemplazaron los datos de contacto de ejemplo por los que proporcionó el cliente, se actualizó el año del pie de página y se conectó el formulario a FormSubmit. El envío ya es real: las solicitudes llegan por correo a `cesarcg1@gmail.com`. El aviso de privacidad sigue siendo provisional, pero ahora informa del envío.
+
+### Cambios
+
+- `src/components/industrial/content.ts`: teléfono y WhatsApp `811-1917-150`, correo `cesarcg1@gmail.com`, ubicación en Emancipacion Proletaria No. 1835 y configuración `contactForm`.
+- `src/components/industrial/sections.tsx`: datos reales en contacto y footer, © 2026, envío JSON a FormSubmit con `_subject`, `_replyto`, `_honey` y `_captcha: false`, y mensajes de confirmación y error.
+- Pruebas: nueva `src/test/contact-form.test.tsx`; `business.test.ts` verifica los datos reales.
+- Documentación: PRD, DECISIONES, MEJORAS, CONTENT, ARCHITECTURE, RUNBOOK y TESTING actualizados.
+
+### Verificación
+
+- `npm test`: 10 pruebas en 5 archivos, todas pasan.
+- Falta el primer envío real para activar el correo en FormSubmit (PD-05).
+
+### Commits relacionados
+
+- `93c3700` — sincronización documental previa.
+- `8be9584` — documentación base.
 
 ## C-002. Documentación del proyecto
 

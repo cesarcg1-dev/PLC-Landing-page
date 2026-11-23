@@ -2,7 +2,7 @@
 
 Fecha: 2026-11-22  
 Proyecto: `12-PLC-Web/PLC-Landing-page`  
-Estado: puntos 1 y 2 resueltos el 2026-11-23; puntos 3 y 4 pendientes.
+Estado: puntos 1, 2 y 4 resueltos; punto 3 resuelto en parte el 2026-11-23.
 
 ## Índice
 
@@ -16,7 +16,7 @@ Estado: puntos 1 y 2 resueltos el 2026-11-23; puntos 3 y 4 pendientes.
 ## Cómo se revisó
 
 - Servidor local: `npm run dev` → `http://localhost:8080/`.
-- Pruebas: `npm test` → 4 archivos, 7 pruebas, todas pasan.
+- Pruebas: `npm test` → 5 archivos, 10 pruebas, todas pasan.
 - Auditoría Lighthouse sobre la página inicial: accesibilidad 100/100, buenas prácticas 100/100, SEO 100/100, sin fallos.
 
 ## 1. Las fotos no cargan en local (prioridad alta)
@@ -46,18 +46,22 @@ Buenas prácticas y SEO quedaron en 100/100.
 
 ## 3. Contenido todavía de demostración (prioridad media)
 
-- `src/components/industrial/content.ts` contiene teléfono, correo, WhatsApp, 15 años de experiencia, 4 horas de respuesta y cuatro estados como datos de ejemplo.
+Estado: resuelto en parte el 2026-11-23. Teléfono, WhatsApp, correo y ubicación son los datos reales que proporcionó el cliente. El formulario envía solicitudes por correo mediante FormSubmit. Siguen como ejemplo los años de experiencia, la cobertura, las certificaciones y los testimonios.
+
+- `src/components/industrial/content.ts` contiene los datos de contacto reales y, todavía como ejemplos, 15 años de experiencia, 4 horas de respuesta y cuatro estados.
 - En `sections.tsx` también son ejemplos las certificaciones ISO 9001 y REPSE, los testimonios y la lista de marcas.
-- El formulario es simulado: no envía ni almacena datos, y lo dice en pantalla.
-- Los avisos de privacidad están marcados como provisionales.
+- El formulario envía los datos por correo a través de FormSubmit; no hay base de datos propia.
+- Los avisos de privacidad siguen marcados como provisionales, pero ya informan del envío por correo.
 - Se desconocen los datos reales de la empresa; no deben inventarse.
 
 ## 4. Año del pie de página (prioridad baja)
 
-- En `sections.tsx` el footer dice «© 2025». La fecha actual es 2026.
+Estado: resuelto el 2026-11-23. El footer dice «© 2026».
+
+- En `sections.tsx` el footer decía «© 2025». La fecha actual es 2026.
 
 ## Pendiente de decidir
 
-1. Los datos reales que deben reemplazar al contenido de demostración (punto 3).
-2. Si el formulario debe seguir simulado o se conectará a algún servicio real (punto 3).
-3. Corregir el año del pie de página (punto 4).
+1. Los datos reales que aún faltan: años, cobertura, certificaciones y testimonios (punto 3).
+2. Publicar el aviso de privacidad definitivo (punto 3).
+3. Confirmar el correo de FormSubmit con el primer envío real.

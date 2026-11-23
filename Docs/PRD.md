@@ -13,7 +13,7 @@ Estado: documento base. Describe la página existente y lo que queda pendiente.
 
 ## Objetivo
 
-Presentar en una sola página los servicios de mantenimiento industrial de TecnoMantenimiento Industrial MTY y facilitar el primer contacto por WhatsApp, teléfono o formulario. El formulario es una demostración: no envía ni almacena datos.
+Presentar en una sola página los servicios de mantenimiento industrial de TecnoMantenimiento Industrial MTY y facilitar el primer contacto por WhatsApp, teléfono o formulario. El formulario envía la solicitud por correo a través de FormSubmit; no hay base de datos propia.
 
 ## RF. Requisitos funcionales
 
@@ -23,10 +23,10 @@ Presentar en una sola página los servicios de mantenimiento industrial de Tecno
 | RF-02 | Encabezado fijo con menú móvil y botón de cotización. | Implementado |
 | RF-03 | Hero con propuesta de valor, cobertura y dos llamadas a la acción. | Implementado |
 | RF-04 | Secciones: servicios, por qué nosotros, proceso, marcas y testimonios, FAQ y contacto. | Implementado |
-| RF-05 | Formulario simulado con confirmación visible y opción de enviar otra solicitud. | Implementado |
+| RF-05 | Formulario conectado a FormSubmit, con confirmación, error visible y opción de enviar otra solicitud. | Implementado |
 | RF-06 | Datos de negocio editables en `src/components/industrial/content.ts`. | Implementado |
 | RF-07 | Enlaces de teléfono, WhatsApp, correo y mapa en la sección de contacto. | Implementado |
-| RF-08 | Aviso de privacidad provisional accesible desde el formulario y el pie de página. | Implementado |
+| RF-08 | Aviso de privacidad provisional que informa del envío por correo, accesible desde el formulario y el pie de página. | Implementado |
 
 ## RNF. Requisitos no funcionales
 
@@ -43,13 +43,12 @@ Presentar en una sola página los servicios de mantenimiento industrial de Tecno
 | ID | Elemento |
 | --- | --- |
 | FC-01 | Backend, base de datos o migraciones. |
-| FC-02 | Envío real del formulario o almacenamiento de datos. |
+| FC-02 | Base de datos propia para almacenar las solicitudes. |
 | FC-03 | Rutas adicionales o blog. |
 | FC-04 | Login, panel de administración, pagos o carrito. |
 
 ## Pendientes
 
-- PD-01: reemplazar los datos de ejemplo por los datos reales de la empresa.
-- PD-02: decidir si el formulario sigue simulado o se conecta a un servicio real.
+- PD-01: reemplazar los datos de ejemplo que quedan (años de experiencia, cobertura, certificaciones y testimonios) por datos reales.
 - PD-03: publicar el aviso de privacidad definitivo.
-- PD-04: actualizar el año del pie de página a 2026.
+- PD-05: hacer el primer envío real y confirmar el correo de FormSubmit.

@@ -1,14 +1,19 @@
 import { CircuitBoard, Cog, Cpu, Wrench } from "lucide-react";
 
 export const business = {
-  phone: "+52 81 1234 5678",
-  tel: "tel:+528112345678",
-  whatsapp: "https://wa.me/528112345678",
-  email: "contacto@tecnoindustrialmty.mx",
+  phone: "811-1917-150",
+  tel: "tel:+528111917150",
+  whatsapp: "https://wa.me/528111917150",
+  email: "cesarcg1@gmail.com",
+  address: "Emancipacion Proletaria No. 1835 Col. CROC. Monterrey, Nuevo León; Mexico",
   states: ["Nuevo León", "Coahuila", "Tamaulipas", "San Luis Potosí"],
   experienceYears: 15,
   emergencyHours: 4,
 };
+export const contactForm = {
+  endpoint: "https://formsubmit.co/ajax/cesarcg1@gmail.com",
+  subject: "Nueva solicitud desde PLC Landing",
+} as const;
 export const links = [
   ["Servicios", "servicios"],
   ["Nosotros", "nosotros"],

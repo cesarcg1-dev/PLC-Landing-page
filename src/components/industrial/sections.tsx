@@ -35,7 +35,7 @@ import {
 } from "@/components/ui/accordion";
 import factoryImage from "@/assets/industrial-machine.jpg.asset.json";
 import electronicsImage from "@/assets/industrial-workshop.jpg.asset.json";
-import { business, links, services } from "./content";
+import { business, contactForm, links, services } from "./content";
 
 // Copias locales para desarrollo; el puntero de Lovable sigue siendo la fuente principal.
 const LOCAL_IMAGES = {
@@ -541,10 +541,34 @@ export function FAQ() {
 }
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
   const [privacy, setPrivacy] = useState(false);
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSent(true);
+    const data = Object.fromEntries(new FormData(event.currentTarget));
+    setSending(true);
+    setError("");
+    try {
+      const response = await fetch(contactForm.endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          ...data,
+          _subject: contactForm.subject,
+          _replyto: data.email,
+          _captcha: "false",
+        }),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const result = (await response.json()) as { success?: string };
+      if (result.success !== "true") throw new Error("Respuesta inesperada");
+      setSent(true);
+    } catch {
+      setError("No se pudo enviar la solicitud. Intenta de nuevo o escríbenos por WhatsApp.");
+    } finally {
+      setSending(false);
+    }
   };
   const field =
     "w-full rounded-md border border-input bg-card px-3 py-3 text-sm outline-none transition-shadow focus:border-primary focus:ring-2 focus:ring-primary/15";
@@ -568,8 +592,7 @@ export function Contact() {
                 <CheckCircle2 className="mb-5 size-12 text-primary" />
                 <h3 className="text-2xl font-bold">¡Gracias por tu solicitud!</h3>
                 <p className="mt-3 max-w-sm text-sm leading-6 text-muted-foreground">
-                  Esta es una confirmación simulada. No se enviaron tus datos. Para contactar al
-                  equipo, utiliza WhatsApp o teléfono.
+                  Recibimos tu solicitud. Te responderemos al correo o teléfono que nos dejaste.
                 </p>
                 <Button variant="outline" className="mt-6" onClick={() => setSent(false)}>
                   Enviar otra solicitud
@@ -577,6 +600,14 @@ export function Contact() {
               </div>
             ) : (
               <form onSubmit={submit} className="grid gap-5 sm:grid-cols-2">
+                <input
+                  type="text"
+                  name="_honey"
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
                 {[
                   ["Nombre", "name", "text"],
                   ["Empresa", "organization", "text"],
@@ -598,7 +629,7 @@ export function Contact() {
                             ? "Nombre de tu empresa"
                             : label === "Correo"
                               ? "nombre@empresa.com"
-                              : "81 1234 5678"
+                              : "811-1917-150"
                       }
                     />
                   </label>
@@ -630,9 +661,14 @@ export function Contact() {
                   />
                 </label>
                 <div className="sm:col-span-2">
-                  <Button variant="cta" size="xl" type="submit">
-                    Enviar solicitud <ArrowRight />
+                  <Button variant="cta" size="xl" type="submit" disabled={sending}>
+                    {sending ? "Enviando…" : "Enviar solicitud"} <ArrowRight />
                   </Button>
+                  {error && (
+                    <p role="alert" className="mt-4 text-xs font-medium text-destructive">
+                      {error}
+                    </p>
+                  )}
                   <p className="mt-4 text-[10px] leading-5 text-muted-foreground">
                     Al enviar, aceptas nuestro{" "}
                     <a
@@ -661,10 +697,10 @@ export function Contact() {
                   </Button>
                 </div>
                 <p className="mt-2 text-xs leading-6 text-muted-foreground">
-                  Aviso provisional del mock: este formulario no almacena ni envía información
-                  personal. Antes de habilitar envíos reales, TecnoMantenimiento Industrial MTY
-                  deberá publicar su aviso de privacidad completo y los medios para ejercer los
-                  derechos ARCO.
+                  Al enviar, tus datos se envían por correo a través de FormSubmit a{" "}
+                  {business.email}. Este aviso es provisional: TecnoMantenimiento Industrial MTY
+                  publicará su aviso de privacidad completo y los medios para ejercer los derechos
+                  ARCO.
                 </p>
               </div>
             )}
@@ -689,8 +725,8 @@ export function Contact() {
                 {
                   icon: MapPin,
                   title: "Ubicación",
-                  text: "Monterrey, Nuevo León",
-                  href: "https://maps.google.com/?q=Monterrey+Nuevo+Leon",
+                  text: business.address,
+                  href: `https://maps.google.com/?q=${encodeURIComponent(business.address)}`,
                 },
               ].map(({ icon: Icon, title, text, href }) => (
                 <div key={title} className="flex items-start gap-3">
@@ -778,14 +814,14 @@ export function Footer() {
               <Mail className="size-3.5 shrink-0 text-primary" />
               {business.email}
             </a>
-            <p className="mt-3 flex items-center gap-2 text-xs text-navy-foreground/60">
-              <MapPin className="size-3.5 text-primary" />
-              Monterrey, Nuevo León
+            <p className="mt-3 flex items-start gap-2 break-words text-xs text-navy-foreground/60">
+              <MapPin className="mt-0.5 size-3.5 shrink-0 text-primary" />
+              {business.address}
             </p>
           </div>
         </div>
         <div className="flex flex-wrap justify-between gap-3 border-t border-navy-foreground/15 py-5 text-[10px] text-navy-foreground/50">
-          <p>© 2025 TecnoMantenimiento Industrial MTY. Todos los derechos reservados.</p>
+          <p>© 2026 TecnoMantenimiento Industrial MTY. Todos los derechos reservados.</p>
           <a
             href="#privacidad-footer"
             onClick={() => setShowPrivacy(!showPrivacy)}
@@ -796,8 +832,8 @@ export function Footer() {
         </div>
         {showPrivacy && (
           <p id="privacidad-footer" className="pb-6 text-xs leading-6 text-navy-foreground/65">
-            Aviso provisional: esta página es un mock. El formulario no envía ni almacena datos. El
-            aviso completo se publicará antes de habilitar el servicio real.
+            Aviso provisional: el formulario envía los datos por correo a través de FormSubmit a{" "}
+            {business.email}. El aviso completo se publicará próximamente.
           </p>
         )}
       </Wrap>

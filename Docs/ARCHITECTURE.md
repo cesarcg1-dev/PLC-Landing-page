@@ -9,6 +9,7 @@ Estado: describe la arquitectura actual del repositorio.
 - [A. Capas y responsabilidades](#a-capas-y-responsabilidades)
 - [A. Renderizado y enrutamiento](#a-renderizado-y-enrutamiento)
 - [A. Imágenes](#a-imágenes)
+- [A. Formulario](#a-formulario)
 - [A. Estilos](#a-estilos)
 - [A. Pruebas](#a-pruebas)
 - [Restricciones](#restricciones)
@@ -20,6 +21,7 @@ Estado: describe la arquitectura actual del repositorio.
 - Tailwind CSS v4 con tokens en `src/styles.css`.
 - Componentes UI de Radix/shadcn en `src/components/ui/`.
 - Vitest, Testing Library y jsdom para pruebas.
+- FormSubmit como servicio externo de correo: no hay backend propio.
 - Proyecto conectado a Lovable; los commits en `main` sincronizan con el editor.
 
 ## A. Capas y responsabilidades
@@ -29,11 +31,12 @@ Estado: describe la arquitectura actual del repositorio.
 | A-01 | Ruta | `src/routes/index.tsx` | Define metadatos y ensambla las secciones. |
 | A-02 | Shell | `src/routes/__root.tsx` | Envuelve la aplicación y conserva `<Outlet />`. |
 | A-03 | Secciones | `src/components/industrial/sections.tsx` | Todo el contenido visual de la página. |
-| A-04 | Contenido | `src/components/industrial/content.ts` | Datos de negocio, enlaces y servicios. |
+| A-04 | Contenido | `src/components/industrial/content.ts` | Datos de negocio, enlaces, servicios y configuración de FormSubmit. |
 | A-05 | UI genérica | `src/components/ui/` | Botones, acordeón y otros primitivos reutilizables. |
 | A-06 | Estilos | `src/styles.css` | Tokens de color, tipografía y utilidades como `reveal`. |
 | A-07 | Recursos | `src/assets/*.asset.json` | Punteros a las fotos alojadas en Lovable. |
-| A-08 | Pruebas | `src/test/` | Pruebas de datos, ruta, imágenes y accesibilidad. |
+| A-08 | Pruebas | `src/test/` | Pruebas de datos, ruta, imágenes, accesibilidad y formulario. |
+| A-09 | Servicio externo | FormSubmit | Recibe la solicitud y envía el correo sin backend propio. |
 
 ## A. Renderizado y enrutamiento
 
@@ -49,6 +52,13 @@ Estado: describe la arquitectura actual del repositorio.
 - Las copias `.jpg` están en `.gitignore`: no se suben al repositorio.
 - No se importan imágenes binarias desde el código, para no incluirlas en el bundle.
 
+## A. Formulario
+
+- `Contact` reúne los campos con `FormData` y hace un `POST` JSON a `https://formsubmit.co/ajax/cesarcg1@gmail.com`.
+- El destinatario y el asunto viven en `contactForm`, dentro de `content.ts`.
+- La respuesta `{"success":"true"}` muestra la confirmación; cualquier otro caso muestra un error con `role="alert"`.
+- `_replyto` usa el correo del visitante, `_honey` es la trampa anti-spam y `_captcha` queda en `false`.
+
 ## A. Estilos
 
 - Los colores se definen con `oklch` en `:root` y se mapean a utilidades en `@theme inline`.
@@ -57,7 +67,7 @@ Estado: describe la arquitectura actual del repositorio.
 
 ## A. Pruebas
 
-- `npm test` ejecuta Vitest sobre cuatro archivos de prueba.
+- `npm test` ejecuta Vitest sobre cinco archivos de prueba.
 - La verificación visual se hace en el navegador integrado sobre `http://localhost:8080`.
 - Lighthouse complementa las pruebas con accesibilidad, buenas prácticas y SEO.
 
