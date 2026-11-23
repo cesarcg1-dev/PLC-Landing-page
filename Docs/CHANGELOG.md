@@ -35,7 +35,7 @@ Se creó la documentación base de PLC Landing web: producto, arquitectura, deci
 
 ### Commits relacionados
 
-- Commit actual — crea la documentación base y actualiza este CHANGELOG.
+- `8be9584` — crea la documentación base y actualiza este CHANGELOG.
 
 ## C-001. Revisión inicial, fotos y accesibilidad
 
@@ -44,7 +44,7 @@ Estado: implementado. Quedan pendientes los puntos 3 y 4 de `Docs/MEJORAS.md`.
 
 ### Resumen ejecutivo
 
-Se revisó la landing industrial y se documentaron sus mejoras. Se corrigió la visualización de las fotografías en el entorno local sin subir binarios al repositorio, y se elevó la accesibilidad de 92 a 100 en Lighthouse. La página conserva su estructura de una sola sección con navegación por anclas y el formulario simulado.
+Se revisó la landing industrial y se documentaron sus mejoras. Se corrigió la visualización de las fotografías en el entorno local sin subir binarios al repositorio, y se elevó la accesibilidad de 92 a 100 en Lighthouse. La página conserva su estructura de una sola página con navegación por anclas y el formulario simulado.
 
 ### Cambios
 
@@ -63,4 +63,4 @@ Se revisó la landing industrial y se documentaron sus mejoras. Se corrigió la 
 
 - `a1a75fb` — documento inicial de mejoras.
 - `47502a4` — respaldo local de fotografías.
-- Commit actual — cierra accesibilidad y agrega este CHANGELOG.
+- `a66ae11` — cierra accesibilidad y agrega este CHANGELOG.

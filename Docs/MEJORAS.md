@@ -4,6 +4,15 @@ Fecha: 2026-11-22
 Proyecto: `12-PLC-Web/PLC-Landing-page`  
 Estado: puntos 1 y 2 resueltos el 2026-11-23; puntos 3 y 4 pendientes.
 
+## Índice
+
+- [Cómo se revisó](#cómo-se-revisó)
+- [1. Fotos en local](#1-las-fotos-no-cargan-en-local-prioridad-alta)
+- [2. Accesibilidad](#2-accesibilidad-3-fallos-concretos-prioridad-media)
+- [3. Contenido de demostración](#3-contenido-todavía-de-demostración-prioridad-media)
+- [4. Año del pie de página](#4-año-del-pie-de-página-prioridad-baja)
+- [Pendiente de decidir](#pendiente-de-decidir)
+
 ## Cómo se revisó
 
 - Servidor local: `npm run dev` → `http://localhost:8080/`.
@@ -45,7 +54,7 @@ Buenas prácticas y SEO quedaron en 100/100.
 
 ## 4. Año del pie de página (prioridad baja)
 
-- `sections.tsx`, línea 740: el footer dice «© 2025». La fecha actual es 2026.
+- En `sections.tsx` el footer dice «© 2025». La fecha actual es 2026.
 
 ## Pendiente de decidir
 

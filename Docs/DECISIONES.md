@@ -16,7 +16,7 @@ Estado: decisiones tomadas hasta hoy y pendientes abiertos.
 | D-01 | Mantener una sola ruta con anclas. | El brief pide una página de scroll continuo. |
 | D-02 | Separar `content.ts` de `sections.tsx`. | Permite cambiar datos de negocio sin tocar la estructura. |
 | D-03 | El formulario es simulado y lo dice en pantalla. | No existe backend ni servicio de correo contratado. |
-| D-04 | Las fotos usan punteros de Lovable con respaldo local ignorado por git. | Cumple `AGENTS.md` original de no subir binarios y permite verlas en local. |
+| D-04 | Las fotos usan punteros de Lovable con respaldo local ignorado por git. | Mantiene los `.jpg` fuera del repositorio y permite ver las fotos en local. |
 | D-05 | Los colores viven como tokens `oklch` en `src/styles.css`. | Tailwind v4 centraliza el sistema visual. |
 | D-06 | El nombre accesible del logo sale de su texto visible. | Evita contradicciones entre texto y lectores de pantalla. |
 | D-07 | Las estrellas usan `role="img"`. | `aria-label` no es válido en un `div` sin rol. |
