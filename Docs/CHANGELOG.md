@@ -6,12 +6,35 @@ Resúmenes ejecutivos de los cambios del proyecto. Cada entrada lleva un ID cons
 
 | ID | Fecha | Resumen |
 | --- | --- | --- |
+| [C-007](#c-007-roadmap-del-proyecto) | 2026-11-23 | Roadmap del proyecto |
 | [C-006](#c-006-cambio-de-marca-a-mtto-mex-cnc) | 2026-11-23 | Cambio de marca a Mtto MEX CNC |
 | [C-005](#c-005-readme-como-índice-del-proyecto) | 2026-11-23 | README como índice del proyecto |
 | [C-004](#c-004-cobertura-real-y-retiro-de-testimonios) | 2026-11-23 | Cobertura real y retiro de testimonios |
 | [C-003](#c-003-datos-reales-año-del-footer-y-formulario-con-formsubmit) | 2026-11-23 | Datos reales y formulario con FormSubmit |
 | [C-002](#c-002-documentación-del-proyecto) | 2026-11-23 | Documentación del proyecto |
 | [C-001](#c-001-revisión-inicial-fotos-y-accesibilidad) | 2026-11-23 | Revisión inicial, fotos y accesibilidad |
+
+## C-007. Roadmap del proyecto
+
+Fecha: 2026-11-23  
+Estado: implementado.
+
+### Resumen ejecutivo
+
+Se creó `ROADMAP.md` tomando como forma el roadmap de otro proyecto: una tabla de etapas con su condición de cierre, sin fechas de entrega. El contenido se adaptó a la situación real de PLC Landing web.
+
+### Cambios
+
+- `ROADMAP.md`: etapas 0 a 5 para documentación, página, formulario y privacidad, calidad, contenido pendiente y publicación.
+- `README.md`: nueva fila para consultar el roadmap.
+
+### Verificación
+
+- Las etapas y los IDs citados existen en `Docs/DECISIONES.md`, `Docs/RUNBOOK.md` y `Docs/CHANGELOG.md`.
+
+### Commits relacionados
+
+- `7e8a5a7` — estado anterior del repositorio.
 
 ## C-006. Cambio de marca a Mtto MEX CNC
 

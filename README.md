@@ -25,6 +25,7 @@ Si no ves los cambios en el navegador, usa **Ctrl+F5**.
 | ¿Qué textos y datos se muestran? | `Docs/CONTENT.md` |
 | ¿Qué falta mejorar? | `Docs/MEJORAS.md` |
 | ¿Qué cambió en cada entrega? | `Docs/CHANGELOG.md` |
+| ¿En qué orden se hará el trabajo? | `ROADMAP.md` |
 
 Cada documento tiene un `## Índice` al inicio. Para un ID concreto (`RF-05`, `D-10`, `PD-05`, `OP-08`, `T-04`), busca ese texto en el documento que lo define.
 
