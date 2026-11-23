@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+package-lock.json
 dist
 dist-ssr
 .output
@@ -15,6 +16,9 @@ dist-ssr
 .tanstack/**
 .nitro
 *.local
+
+# Copias locales de fotos descargadas de Lovable; los punteros son los .asset.json
+src/assets/*.jpg
 
 # Wrangler / Cloudflare
 .wrangler/

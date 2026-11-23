@@ -1,4 +1,11 @@
-import { useEffect, useState, type ReactNode, type FormEvent } from "react";
+import {
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+  type FormEvent,
+  type ImgHTMLAttributes,
+} from "react";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -29,6 +36,40 @@ import {
 import factoryImage from "@/assets/industrial-machine.jpg.asset.json";
 import electronicsImage from "@/assets/industrial-workshop.jpg.asset.json";
 import { business, links, services } from "./content";
+
+// Copias locales para desarrollo; el puntero de Lovable sigue siendo la fuente principal.
+const LOCAL_IMAGES = {
+  factory: "/src/assets/industrial-machine.jpg",
+  electronics: "/src/assets/industrial-workshop.jpg",
+} as const;
+
+function applyLocalFallback(img: HTMLImageElement, fallback: string) {
+  if (img.dataset.localFallback) return;
+  img.dataset.localFallback = "true";
+  img.setAttribute("src", fallback);
+}
+
+export function IndustrialImage({
+  pointer,
+  fallback,
+  ...props
+}: { pointer: { url: string }; fallback: string } & ImgHTMLAttributes<HTMLImageElement>) {
+  const ref = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    const img = ref.current;
+    if (img?.complete && img.naturalWidth === 0) applyLocalFallback(img, fallback);
+  }, [fallback]);
+
+  return (
+    <img
+      {...props}
+      ref={ref}
+      src={pointer.url}
+      onError={(event) => applyLocalFallback(event.currentTarget, fallback)}
+    />
+  );
+}
 
 function Wrap({ children, className = "" }: { children: ReactNode; className?: string }) {
   return <div className={`mx-auto w-full max-w-6xl px-6 lg:px-8 ${className}`}>{children}</div>;
@@ -139,8 +180,9 @@ export function Header() {
 export function Hero() {
   return (
     <section id="inicio" className="relative mt-20 overflow-hidden bg-navy text-navy-foreground">
-      <img
-        src={factoryImage.url}
+      <IndustrialImage
+        pointer={factoryImage}
+        fallback={LOCAL_IMAGES.factory}
         alt="Detalle de componentes mecánicos y sistemas de un equipo industrial"
         className="absolute inset-0 h-full w-full object-cover object-center"
         fetchPriority="high"
@@ -307,8 +349,9 @@ export function WhyUs() {
               técnica y compromiso en cada servicio.
             </p>
             <div className="relative mt-8 overflow-hidden rounded-lg">
-              <img
-                src={electronicsImage.url}
+              <IndustrialImage
+                pointer={electronicsImage}
+                fallback={LOCAL_IMAGES.electronics}
                 alt="Técnico realizando diagnóstico y reparación de una tarjeta electrónica"
                 className="h-56 w-full object-cover"
                 loading="lazy"
