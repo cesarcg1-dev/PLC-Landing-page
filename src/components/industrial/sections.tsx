@@ -102,7 +102,6 @@ export function Logo({ inverted = false }: { inverted?: boolean }) {
   return (
     <a
       href="#inicio"
-      aria-label="TecnoMantenimiento MTY, inicio"
       className={`flex items-center gap-2.5 ${inverted ? "text-navy-foreground" : "text-navy"}`}
     >
       <span className="flex size-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
@@ -110,7 +109,9 @@ export function Logo({ inverted = false }: { inverted?: boolean }) {
       </span>
       <span className="font-display text-lg font-bold leading-tight sm:text-xl">
         TecnoMantenimiento
-        <span className="block text-[10px] font-semibold uppercase tracking-[0.18em] text-primary">
+        <span
+          className={`block text-[10px] font-semibold uppercase tracking-[0.18em] ${inverted ? "text-navy-foreground/80" : "text-primary"}`}
+        >
           Industrial MTY
         </span>
       </span>
@@ -458,7 +459,11 @@ export function SocialProof() {
               key={t.name}
               className="reveal rounded-lg border border-border bg-card p-7 shadow-soft"
             >
-              <div aria-label="5 de 5 estrellas" className="flex gap-1 text-primary">
+              <div
+                role="img"
+                aria-label="5 de 5 estrellas"
+                className="flex gap-1 text-primary"
+              >
                 {Array.from({ length: 5 }, (_, i) => (
                   <Star key={i} className="size-4 fill-current" />
                 ))}

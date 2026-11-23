@@ -2,15 +2,17 @@
 
 Fecha: 2026-11-22  
 Proyecto: `12-PLC-Web/PLC-Landing-page`  
-Estado: listado para revisión. Ninguno de estos puntos está aplicado.
+Estado: puntos 1 y 2 resueltos el 2026-11-23; puntos 3 y 4 pendientes.
 
 ## Cómo se revisó
 
 - Servidor local: `npm run dev` → `http://localhost:8080/`.
-- Pruebas: `npm test` → 2 archivos, 4 pruebas, todas pasan.
-- Auditoría Lighthouse sobre la página inicial: accesibilidad 92/100, buenas prácticas 100/100, SEO 100/100.
+- Pruebas: `npm test` → 4 archivos, 7 pruebas, todas pasan.
+- Auditoría Lighthouse sobre la página inicial: accesibilidad 100/100, buenas prácticas 100/100, SEO 100/100, sin fallos.
 
 ## 1. Las fotos no cargan en local (prioridad alta)
+
+Estado: resuelto el 2026-11-23 (commit `47502a4`). Los punteros de Lovable siguen siendo la fuente principal; `IndustrialImage` cae a las copias locales cuando fallan. Los `.jpg` están en `.gitignore` y no se suben al repo.
 
 - Archivos implicados:
   - `src/assets/industrial-machine.jpg.asset.json`
@@ -19,11 +21,13 @@ Estado: listado para revisión. Ninguno de estos puntos está aplicado.
 - Los tres apuntan a rutas `/__l5e/assets-v1/...` del hospedaje de Lovable. En el servidor local responden 404.
 - En el navegador, las dos imágenes que sí se usan tienen `naturalWidth = 0`, es decir, no se muestran.
 - `cnc-factory.jpg.asset.json` existe pero no se usa en `src/components/industrial/sections.tsx`.
-- Restricción a respetar: `AGENTS.md` pide servir las fotos mediante punteros de recurso y mantener los binarios fuera del repositorio. Falta decidir la forma de servirlas en local sin romper eso.
+- Restricción respetada: `AGENTS.md` pide servir las fotos mediante punteros de recurso y mantener los binarios fuera del repositorio. Se resolvió con copias locales ignoradas por git y el respaldo en `IndustrialImage`.
 
 ## 2. Accesibilidad: 3 fallos concretos (prioridad media)
 
-Ubicaciones señaladas por la auditoría en `src/components/industrial/sections.tsx`:
+Estado: resuelto el 2026-11-23. Se corrigieron esos tres fallos y los casos de contraste que aparecieron después: primario y verde de WhatsApp más oscuros, logo sin `aria-label` y estrellas con `role="img"`. Lighthouse quedó en 100/100 sin fallos.
+
+Ubicaciones originales señaladas por la auditoría en `src/components/industrial/sections.tsx`:
 
 - Línea 418: `aria-label="5 de 5 estrellas"` está en un `<div>` sin rol válido; ARIA no lo permite ahí.
 - Línea 72: el texto «INDUSTRIAL MTY» tiene contraste 3.23:1 sobre blanco; el mínimo exigido es 4.5:1.
@@ -45,7 +49,6 @@ Buenas prácticas y SEO quedaron en 100/100.
 
 ## Pendiente de decidir
 
-1. Cuál punto se ataca primero. Sugerencia: el 1 y después el 2.
-2. Cómo servir las imágenes en local respetando `AGENTS.md`.
-3. Los datos reales que deben reemplazar al contenido de demostración.
-4. Si el formulario debe seguir simulado o se conectará a algún servicio real.
+1. Los datos reales que deben reemplazar al contenido de demostración (punto 3).
+2. Si el formulario debe seguir simulado o se conectará a algún servicio real (punto 3).
+3. Corregir el año del pie de página (punto 4).
