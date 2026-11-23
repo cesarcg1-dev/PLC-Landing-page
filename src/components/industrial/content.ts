@@ -6,7 +6,7 @@ export const business = {
   whatsapp: "https://wa.me/528111917150",
   email: "cesarcg1@gmail.com",
   address: "Emancipacion Proletaria No. 1835 Col. CROC. Monterrey, Nuevo León; Mexico",
-  states: ["Nuevo León", "Coahuila", "Tamaulipas", "San Luis Potosí"],
+  coverage: "Area Metropolitana de Monterrey",
   experienceYears: 15,
   emergencyHours: 4,
 };

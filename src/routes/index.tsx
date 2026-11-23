@@ -16,15 +16,15 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TecnoMantenimiento Industrial MTY | CNC, PLC y electrónica" },
+      { title: "Mtto MEX CNC | CNC, PLC y electrónica" },
       {
         name: "description",
         content:
-          "Mantenimiento especializado de centros de maquinado CNC, electricidad, electrónica y PLC. Atención en planta y taller en Monterrey y cobertura en cuatro estados.",
+          "Mantenimiento especializado de centros de maquinado CNC, electricidad, electrónica y PLC. Atención en planta y taller, con cobertura en el Area Metropolitana de Monterrey.",
       },
       {
         property: "og:title",
-        content: "TecnoMantenimiento Industrial MTY | CNC, PLC y electrónica",
+        content: "Mtto MEX CNC | CNC, PLC y electrónica",
       },
       {
         property: "og:description",

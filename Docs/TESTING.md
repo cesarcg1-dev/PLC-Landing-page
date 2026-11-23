@@ -16,7 +16,7 @@ Estado: cómo se prueba y qué se verificó.
 | T-01 | Datos de negocio | `src/test/business.test.ts` | Horas de emergencia, estados y años de experiencia. |
 | T-02 | Enrutamiento | `src/test/app-routing.test.tsx` | La ruta `/` resuelve a una página real. |
 | T-03 | Imágenes | `src/test/images.test.tsx` | El puntero se usa primero y el respaldo local entra si falla, sin bucles. |
-| T-04 | Accesibilidad | `src/test/accessibility.test.tsx` | Nombre accesible del logo y rol de las estrellas. |
+| T-04 | Accesibilidad | `src/test/accessibility.test.tsx` | Nombre accesible del logo y sección de marcas sin testimonios. |
 | T-05 | Formulario | `src/test/contact-form.test.tsx` | Envío a FormSubmit con `fetch` simulado y mensaje de error. |
 
 Comando: `npm test`.

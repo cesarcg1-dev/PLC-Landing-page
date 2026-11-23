@@ -7,13 +7,14 @@ describe("Accesibilidad", () => {
     render(<Logo />);
 
     expect(
-      screen.getByRole("link", { name: "TecnoMantenimiento Industrial MTY" }),
+      screen.getByRole("link", { name: "Mtto MEX CNC" }),
     ).toBeInTheDocument();
   });
 
-  it("las estrellas usan un rol que permite aria-label", () => {
+  it("la sección de marcas ya no muestra testimonios", () => {
     render(<SocialProof />);
 
-    expect(screen.getAllByRole("img", { name: "5 de 5 estrellas" })).toHaveLength(2);
+    expect(screen.getByText("Marcas que atendemos")).toBeInTheDocument();
+    expect(screen.queryByRole("img", { name: "5 de 5 estrellas" })).not.toBeInTheDocument();
   });
 });

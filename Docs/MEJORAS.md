@@ -40,16 +40,16 @@ Ubicaciones originales señaladas por la auditoría en `src/components/industria
 
 - Línea 418: `aria-label="5 de 5 estrellas"` está en un `<div>` sin rol válido; ARIA no lo permite ahí.
 - Línea 72: el texto «INDUSTRIAL MTY» tiene contraste 3.23:1 sobre blanco; el mínimo exigido es 4.5:1.
-- Líneas 62 y 697: el `aria-label` del logo («TecnoMantenimiento MTY, inicio») no incluye el texto visible «TecnoMantenimiento Industrial MTY».
+- Líneas 62 y 697: el `aria-label` del logo no coincidía con el texto visible; se eliminó para que el nombre accesible salga del propio enlace, hoy «Mtto MEX CNC».
 
 Buenas prácticas y SEO quedaron en 100/100.
 
 ## 3. Contenido todavía de demostración (prioridad media)
 
-Estado: resuelto en parte el 2026-11-23. Teléfono, WhatsApp, correo y ubicación son los datos reales que proporcionó el cliente. El formulario envía solicitudes por correo mediante FormSubmit. Siguen como ejemplo los años de experiencia, la cobertura, las certificaciones y los testimonios.
+Estado: resuelto en parte el 2026-11-23. Son datos reales el teléfono, WhatsApp, correo, ubicación, los 15 años de experiencia y la cobertura en el Area Metropolitana de Monterrey. El formulario envía solicitudes por correo mediante FormSubmit. No hay testimonios en la página: se agregarán cuando el cliente los proporcione. Siguen como ejemplo las certificaciones y las marcas.
 
-- `src/components/industrial/content.ts` contiene los datos de contacto reales y, todavía como ejemplos, 15 años de experiencia, 4 horas de respuesta y cuatro estados.
-- En `sections.tsx` también son ejemplos las certificaciones ISO 9001 y REPSE, los testimonios y la lista de marcas.
+- `src/components/industrial/content.ts` contiene los datos de contacto reales, los 15 años de experiencia y la cobertura real.
+- En `sections.tsx` siguen siendo ejemplos las certificaciones ISO 9001 y REPSE y la lista de marcas. Los testimonios se retiraron de `SocialProof`.
 - El formulario envía los datos por correo a través de FormSubmit; no hay base de datos propia.
 - Los avisos de privacidad siguen marcados como provisionales, pero ya informan del envío por correo.
 - Se desconocen los datos reales de la empresa; no deben inventarse.
@@ -62,6 +62,7 @@ Estado: resuelto el 2026-11-23. El footer dice «© 2026».
 
 ## Pendiente de decidir
 
-1. Los datos reales que aún faltan: años, cobertura, certificaciones y testimonios (punto 3).
-2. Publicar el aviso de privacidad definitivo (punto 3).
-3. Confirmar el correo de FormSubmit con el primer envío real.
+1. Validar las certificaciones ISO 9001:2015 y REPSE, que siguen siendo ejemplos (punto 3).
+2. Agregar testimonios cuando el cliente los proporcione; no se inventarán frases ni nombres (punto 3).
+3. Publicar el aviso de privacidad definitivo (punto 3).
+4. Confirmar el correo de FormSubmit con el primer envío real.

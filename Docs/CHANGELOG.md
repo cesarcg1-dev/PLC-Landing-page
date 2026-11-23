@@ -6,9 +6,85 @@ Resúmenes ejecutivos de los cambios del proyecto. Cada entrada lleva un ID cons
 
 | ID | Fecha | Resumen |
 | --- | --- | --- |
+| [C-006](#c-006-cambio-de-marca-a-mtto-mex-cnc) | 2026-11-23 | Cambio de marca a Mtto MEX CNC |
+| [C-005](#c-005-readme-como-índice-del-proyecto) | 2026-11-23 | README como índice del proyecto |
+| [C-004](#c-004-cobertura-real-y-retiro-de-testimonios) | 2026-11-23 | Cobertura real y retiro de testimonios |
 | [C-003](#c-003-datos-reales-año-del-footer-y-formulario-con-formsubmit) | 2026-11-23 | Datos reales y formulario con FormSubmit |
 | [C-002](#c-002-documentación-del-proyecto) | 2026-11-23 | Documentación del proyecto |
 | [C-001](#c-001-revisión-inicial-fotos-y-accesibilidad) | 2026-11-23 | Revisión inicial, fotos y accesibilidad |
+
+## C-006. Cambio de marca a Mtto MEX CNC
+
+Fecha: 2026-11-23  
+Estado: implementado.
+
+### Resumen ejecutivo
+
+Se sustituyó el nombre anterior de la empresa por **Mtto MEX CNC** en la interfaz, los metadatos, las pruebas y la documentación. El logo mantiene dos líneas: «Mtto MEX» y «CNC», de modo que su nombre accesible es «Mtto MEX CNC».
+
+### Cambios
+
+- `src/components/industrial/sections.tsx`: logo, aviso de privacidad, descripción del footer y copyright.
+- `src/routes/__root.tsx` y `src/routes/index.tsx`: título y `og:title`.
+- `src/test/accessibility.test.tsx`: nombre accesible esperado.
+- `README.md` y `Docs/PRD.md`: nombre de la empresa.
+- `Docs/MEJORAS.md`: nota histórica de accesibilidad reformulada sin repetir el nombre anterior.
+- `Docs/DECISIONES.md`: decisión D-12.
+
+### Verificación
+
+- `npm test`: 10 pruebas en 5 archivos, todas pasan.
+- Búsqueda de texto: no quedan referencias al nombre anterior.
+
+### Commits relacionados
+
+- `7d0db2e` — estado anterior del repositorio.
+
+## C-005. README como índice del proyecto
+
+Fecha: 2026-11-23  
+Estado: implementado.
+
+### Resumen ejecutivo
+
+Se recreó `README.md`, que estaba borrado en el árbol de trabajo. El nuevo archivo sirve de puerta de entrada: comandos básicos, tabla que indica qué documento responde cada pregunta, estado actual y pendientes.
+
+### Cambios
+
+- `README.md`: inicio rápido, índice de los 9 documentos de `Docs/`, estado actual, pendientes PD-01, PD-03 y PD-05 y nota sobre `AGENTS.md` como referencia.
+
+### Verificación
+
+- Los 9 documentos referenciados existen y tienen `## Índice` al inicio.
+
+### Commits relacionados
+
+- `7d0db2e` — estado anterior del repositorio.
+
+## C-004. Cobertura real y retiro de testimonios
+
+Fecha: 2026-11-23  
+Estado: implementado. Siguen PD-01, PD-03 y PD-05, más el pendiente de testimonios en `Docs/MEJORAS.md`.
+
+### Resumen ejecutivo
+
+Se confirmaron como datos reales los 15 años de experiencia y la cobertura en el Area Metropolitana de Monterrey. Se retiraron los testimonios de demostración; se agregarán cuando el cliente proporcione frases y nombres reales.
+
+### Cambios
+
+- `src/components/industrial/content.ts`: `states` se sustituye por `coverage` con el Area Metropolitana de Monterrey.
+- `src/components/industrial/sections.tsx`: cobertura real en tres puntos y bloque de testimonios retirado de `SocialProof`; el icono `Star` ya no se usa.
+- `src/routes/index.tsx`: metadato de descripción actualizado.
+- Pruebas: se ajustaron `business.test.ts` y `accessibility.test.tsx`.
+- Documentación: PRD, DECISIONES, CONTENT, MEJORAS y TESTING actualizados.
+
+### Verificación
+
+- `npm test`: 10 pruebas en 5 archivos, todas pasan.
+
+### Commits relacionados
+
+- `7d0db2e` — estado anterior del repositorio.
 
 ## C-003. Datos reales, año del footer y formulario con FormSubmit
 

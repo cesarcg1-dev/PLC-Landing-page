@@ -20,7 +20,6 @@ import {
   MessageCircle,
   Phone,
   ShieldCheck,
-  Star,
   Target,
   X,
   Mail,
@@ -108,11 +107,11 @@ export function Logo({ inverted = false }: { inverted?: boolean }) {
         <Cog className="size-7" strokeWidth={1.7} />
       </span>
       <span className="font-display text-lg font-bold leading-tight sm:text-xl">
-        TecnoMantenimiento
+        Mtto MEX
         <span
           className={`block text-[10px] font-semibold uppercase tracking-[0.18em] ${inverted ? "text-navy-foreground/80" : "text-primary"}`}
         >
-          Industrial MTY
+          CNC
         </span>
       </span>
     </a>
@@ -238,7 +237,7 @@ export function TrustBar() {
   const items = [
     { icon: BadgeCheck, value: `+${business.experienceYears} años`, text: "de experiencia" },
     { icon: ShieldCheck, value: "ISO 9001 y REPSE", text: "Certificaciones" },
-    { icon: MapPin, value: `${business.states.length} estados`, text: "Cobertura regional" },
+    { icon: MapPin, value: business.coverage, text: "Cobertura" },
     {
       icon: Clock3,
       value: `Menos de ${business.emergencyHours} horas`,
@@ -336,7 +335,7 @@ export function WhyUs() {
       title: "Diagnóstico honesto",
       text: "Si tu equipo no se puede reparar, te decimos por qué y qué alternativas tienes.",
     },
-    { icon: MapPin, title: "Cobertura regional", text: business.states.join(", ") + "." },
+    { icon: MapPin, title: "Cobertura", text: `${business.coverage}.` },
   ];
   return (
     <section id="nosotros" className="bg-navy py-16 text-navy-foreground sm:py-20">
@@ -438,49 +437,6 @@ export function SocialProof() {
         <p className="mt-5 text-center text-xs leading-6 text-muted-foreground">
           Sectores atendidos: automotriz, metal-mecánico, alimentos, plásticos.
         </p>
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          {[
-            {
-              quote:
-                "Resolvieron una falla en nuestro centro de maquinado que tenía la línea detenida. Un diagnóstico preciso y una atención excelente.",
-              name: "Ing. Carlos Ramírez",
-              role: "Gerente de Producción, Metalmecánica del Norte",
-              initials: "CR",
-            },
-            {
-              quote:
-                "Su plan de mantenimiento nos ha ayudado a reducir los paros inesperados. Un equipo profesional que realmente conoce la industria.",
-              name: "Ing. Laura Martínez",
-              role: "Jefa de Mantenimiento, Componentes Industriales MTY",
-              initials: "LM",
-            },
-          ].map((t) => (
-            <article
-              key={t.name}
-              className="reveal rounded-lg border border-border bg-card p-7 shadow-soft"
-            >
-              <div
-                role="img"
-                aria-label="5 de 5 estrellas"
-                className="flex gap-1 text-primary"
-              >
-                {Array.from({ length: 5 }, (_, i) => (
-                  <Star key={i} className="size-4 fill-current" />
-                ))}
-              </div>
-              <p className="my-5 text-sm leading-7 text-steel">“{t.quote}”</p>
-              <div className="flex items-center gap-3">
-                <span className="flex size-10 items-center justify-center rounded-full bg-muted text-xs font-semibold text-navy">
-                  {t.initials}
-                </span>
-                <div>
-                  <p className="text-sm font-semibold">{t.name}</p>
-                  <p className="mt-1 text-[10px] leading-4 text-muted-foreground">{t.role}</p>
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
       </Wrap>
     </section>
   );
@@ -698,7 +654,7 @@ export function Contact() {
                 </div>
                 <p className="mt-2 text-xs leading-6 text-muted-foreground">
                   Al enviar, tus datos se envían por correo a través de FormSubmit a{" "}
-                  {business.email}. Este aviso es provisional: TecnoMantenimiento Industrial MTY
+                  {business.email}. Este aviso es provisional: Mtto MEX CNC
                   publicará su aviso de privacidad completo y los medios para ejercer los derechos
                   ARCO.
                 </p>
@@ -763,7 +719,7 @@ export function Contact() {
               </div>
             </div>
             <p className="mt-4 text-[10px] leading-5 text-muted-foreground">
-              Cobertura: {business.states.join(", ")}.
+              Cobertura: {business.coverage}.
             </p>
           </aside>
         </div>
@@ -780,7 +736,7 @@ export function Footer() {
           <div>
             <Logo inverted />
             <p className="mt-5 max-w-sm text-xs leading-6 text-navy-foreground/60">
-              TecnoMantenimiento Industrial MTY. Soluciones especializadas en CNC, electricidad,
+              Mtto MEX CNC. Soluciones especializadas en CNC, electricidad,
               electrónica y automatización para que tu producción no se detenga.
             </p>
           </div>
@@ -821,7 +777,7 @@ export function Footer() {
           </div>
         </div>
         <div className="flex flex-wrap justify-between gap-3 border-t border-navy-foreground/15 py-5 text-[10px] text-navy-foreground/50">
-          <p>© 2026 TecnoMantenimiento Industrial MTY. Todos los derechos reservados.</p>
+          <p>© 2026 Mtto MEX CNC. Todos los derechos reservados.</p>
           <a
             href="#privacidad-footer"
             onClick={() => setShowPrivacy(!showPrivacy)}

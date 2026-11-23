@@ -81,12 +81,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TecnoMantenimiento Industrial MTY" },
+      { title: "Mtto MEX CNC" },
       {
         name: "description",
         content: "Mantenimiento industrial para CNC, electricidad, electrónica y PLC en Monterrey.",
       },
-      { property: "og:title", content: "TecnoMantenimiento Industrial MTY" },
+      { property: "og:title", content: "Mtto MEX CNC" },
       {
         property: "og:description",
         content: "Mantenimiento industrial para CNC, electricidad, electrónica y PLC en Monterrey.",

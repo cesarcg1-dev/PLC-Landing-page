@@ -13,7 +13,7 @@ Estado: documento base. Describe la página existente y lo que queda pendiente.
 
 ## Objetivo
 
-Presentar en una sola página los servicios de mantenimiento industrial de TecnoMantenimiento Industrial MTY y facilitar el primer contacto por WhatsApp, teléfono o formulario. El formulario envía la solicitud por correo a través de FormSubmit; no hay base de datos propia.
+Presentar en una sola página los servicios de mantenimiento industrial de Mtto MEX CNC y facilitar el primer contacto por WhatsApp, teléfono o formulario. El formulario envía la solicitud por correo a través de FormSubmit; no hay base de datos propia.
 
 ## RF. Requisitos funcionales
 
@@ -22,7 +22,7 @@ Presentar en una sola página los servicios de mantenimiento industrial de Tecno
 | RF-01 | Una sola página en `/` con navegación por anclas. | Implementado |
 | RF-02 | Encabezado fijo con menú móvil y botón de cotización. | Implementado |
 | RF-03 | Hero con propuesta de valor, cobertura y dos llamadas a la acción. | Implementado |
-| RF-04 | Secciones: servicios, por qué nosotros, proceso, marcas y testimonios, FAQ y contacto. | Implementado |
+| RF-04 | Secciones: servicios, por qué nosotros, proceso, marcas, FAQ y contacto. | Implementado |
 | RF-05 | Formulario conectado a FormSubmit, con confirmación, error visible y opción de enviar otra solicitud. | Implementado |
 | RF-06 | Datos de negocio editables en `src/components/industrial/content.ts`. | Implementado |
 | RF-07 | Enlaces de teléfono, WhatsApp, correo y mapa en la sección de contacto. | Implementado |
@@ -49,6 +49,6 @@ Presentar en una sola página los servicios de mantenimiento industrial de Tecno
 
 ## Pendientes
 
-- PD-01: reemplazar los datos de ejemplo que quedan (años de experiencia, cobertura, certificaciones y testimonios) por datos reales.
+- PD-01: validar las certificaciones y las marcas que siguen siendo ejemplos. Los testimonios se agregarán cuando se tengan (ver `Docs/MEJORAS.md`).
 - PD-03: publicar el aviso de privacidad definitivo.
 - PD-05: hacer el primer envío real y confirmar el correo de FormSubmit.

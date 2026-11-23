@@ -17,7 +17,7 @@ Estado: inventario del contenido editable y de los datos de ejemplo.
 | CT-06 | Destinatario y asunto del formulario | `contactForm` en `content.ts`. |
 | CT-02 | Enlaces del menú y del footer | `links` en `content.ts`. |
 | CT-03 | Servicios y listas de bullets | `services` en `content.ts`. |
-| CT-04 | Textos de secciones, FAQ y testimonios | `src/components/industrial/sections.tsx`. |
+| CT-04 | Textos de secciones, marcas y FAQ | `src/components/industrial/sections.tsx`. |
 | CT-05 | Metadatos de la página | `src/routes/index.tsx`. |
 
 ## Datos reales y de ejemplo
@@ -27,14 +27,17 @@ Datos reales, proporcionados por el cliente el 2026-11-23:
 - Teléfono y WhatsApp: `811-1917-150` (`tel:+528111917150`, `wa.me/528111917150`).
 - Correo: `cesarcg1@gmail.com`.
 - Ubicación: `Emancipacion Proletaria No. 1835 Col. CROC. Monterrey, Nuevo León; Mexico`.
+- Años de experiencia: 15.
+- Cobertura: `Area Metropolitana de Monterrey`.
 
 Siguen siendo ejemplos:
 
-- Años de experiencia: 15. Respuesta a emergencias: 4 horas.
-- Cobertura: Nuevo León, Coahuila, Tamaulipas y San Luis Potosí.
+- Respuesta a emergencias: 4 horas.
 - Certificaciones mostradas: ISO 9001:2015 y REPSE.
-- Testimonios, marcas y sectores atendidos.
+- Marcas y sectores atendidos.
 - Aviso de privacidad provisional; el formulario sí envía correo.
+
+No hay testimonios en la página: se retiraron y quedan pendientes en `Docs/MEJORAS.md` hasta que el cliente los proporcione.
 
 ## Regla de datos reales
 
